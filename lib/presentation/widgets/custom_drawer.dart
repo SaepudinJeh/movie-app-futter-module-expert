@@ -49,15 +49,30 @@ class _CustomDrawerState extends State<CustomDrawer>
                       accountEmail: Text('ditonton@dicoding.com'),
                     ),
                     ListTile(
-                      leading: Icon(Icons.movie),
+                      leading: Icon(Icons.movie_filter_outlined),
                       title: Text('Movies'),
                       onTap: () {
                         Navigator.pop(context);
                       },
                     ),
                     ListTile(
-                      leading: Icon(Icons.save_alt),
-                      title: Text('Watchlist'),
+                      leading: Icon(Icons.live_tv_rounded),
+                      title: Text('Watching TV'),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.save_alt_rounded),
+                      title: Text('Watchlist Movie'),
+                      onTap: () {
+                        Navigator.pushNamed(
+                            context, WatchlistMoviesPage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.save_alt_rounded),
+                      title: Text('Watchlist TV'),
                       onTap: () {
                         Navigator.pushNamed(
                             context, WatchlistMoviesPage.ROUTE_NAME);
@@ -67,7 +82,7 @@ class _CustomDrawerState extends State<CustomDrawer>
                       onTap: () {
                         Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
                       },
-                      leading: Icon(Icons.info_outline),
+                      leading: Icon(Icons.info_outline_rounded),
                       title: Text('About'),
                     ),
                   ],
