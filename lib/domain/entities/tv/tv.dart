@@ -1,17 +1,15 @@
-import 'package:ditonton/domain/entities/genre.dart';
 import 'package:equatable/equatable.dart';
 
 class TV extends Equatable {
   TV({
     required this.adult,
     required this.backdropPath,
-    required this.genres,
+    required this.genreIds,
     required this.id,
-    required this.originalTitle,
     required this.overview,
     required this.posterPath,
-    required this.releaseDate,
     required this.runtime,
+    required this.name,
     required this.originalName,
     required this.voteAverage,
     required this.voteCount,
@@ -21,16 +19,15 @@ class TV extends Equatable {
       {required this.id,
       required this.overview,
       required this.posterPath,
-      required this.originalName});
+      required this.name});
 
   bool? adult;
   String? backdropPath;
-  List<Genre>? genres;
+  List<int>? genreIds;
   int id;
-  String? originalTitle;
+  String? name;
   String? overview;
   String? posterPath;
-  String? releaseDate;
   int? runtime;
   String? originalName;
   double? voteAverage;
@@ -40,12 +37,11 @@ class TV extends Equatable {
   List<Object?> get props => [
         adult,
         backdropPath,
-        genres,
+        genreIds,
         id,
-        originalTitle,
         overview,
         posterPath,
-        releaseDate,
+        name,
         originalName,
         voteAverage,
         voteCount,

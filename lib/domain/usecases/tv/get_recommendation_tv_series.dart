@@ -9,6 +9,6 @@ class GetSimilarTVSeries {
   GetSimilarTVSeries(this.repository);
 
   Future<Either<Failure, List<TV>>> execute(id) {
-    return repository.getSimilarTVSeries(id);
+    return repository.getRecommendationTV(id);
   }
 }
