@@ -18,94 +18,62 @@ void main() {
   late MovieRepositoryImpl repository;
   late MockMovieRemoteDataSource mockRemoteDataSource;
   late MockMovieLocalDataSource mockLocalDataSource;
+  late MockNetworkInfo mockNetworkInfo;
 
   setUp(() {
     mockRemoteDataSource = MockMovieRemoteDataSource();
     mockLocalDataSource = MockMovieLocalDataSource();
+    mockNetworkInfo = MockNetworkInfo();
+
     repository = MovieRepositoryImpl(
       remoteDataSource: mockRemoteDataSource,
       localDataSource: mockLocalDataSource,
+      networkInfo: mockNetworkInfo,
     );
   });
-
-  final tMovieModel = MovieModel(
-    adult: false,
-    backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-    genreIds: [14, 28],
-    id: 557,
-    originalTitle: 'Spider-Man',
-    overview:
-        'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
-    popularity: 60.441,
-    posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
-    releaseDate: '2002-05-01',
-    title: 'Spider-Man',
-    video: false,
-    voteAverage: 7.2,
-    voteCount: 13507,
-  );
-
-  final tMovie = Movie(
-    adult: false,
-    backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-    genreIds: [14, 28],
-    id: 557,
-    originalTitle: 'Spider-Man',
-    overview:
-        'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
-    popularity: 60.441,
-    posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
-    releaseDate: '2002-05-01',
-    title: 'Spider-Man',
-    video: false,
-    voteAverage: 7.2,
-    voteCount: 13507,
-  );
 
   final tMovieModelList = <MovieModel>[tMovieModel];
   final tMovieList = <Movie>[tMovie];
 
   group('Now Playing Movies', () {
-    test(
-        'should return remote data when the call to remote data source is successful',
-        () async {
+    test('should check if the device is online', () async {
       // arrange
+      when(mockNetworkInfo.isConnected).thenAnswer((_) async => true);
       when(mockRemoteDataSource.getNowPlayingMovies())
-          .thenAnswer((_) async => tMovieModelList);
+          .thenAnswer((_) async => []);
       // act
-      final result = await repository.getNowPlayingMovies();
-      // assert
-      verify(mockRemoteDataSource.getNowPlayingMovies());
-      /* workaround to test List in Right. Issue: https://github.com/spebbe/dartz/issues/80 */
-      final resultList = result.getOrElse(() => []);
-      expect(resultList, tMovieList);
+      await repository.getNowPlayingMovies();
+      // verify
+      verify(mockNetworkInfo.isConnected);
     });
 
-    test(
-        'should return server failure when the call to remote data source is unsuccessful',
-        () async {
-      // arrange
-      when(mockRemoteDataSource.getNowPlayingMovies())
-          .thenThrow(ServerException());
-      // act
-      final result = await repository.getNowPlayingMovies();
-      // assert
-      verify(mockRemoteDataSource.getNowPlayingMovies());
-      expect(result, equals(Left(ServerFailure(''))));
-    });
+    group('when device is offline', () {
+      setUp(() {
+        when(mockNetworkInfo.isConnected).thenAnswer((_) async => false);
+      });
 
-    test(
-        'should return connection failure when the device is not connected to internet',
-        () async {
-      // arrange
-      when(mockRemoteDataSource.getNowPlayingMovies())
-          .thenThrow(SocketException('Failed to connect to the network'));
-      // act
-      final result = await repository.getNowPlayingMovies();
-      // assert
-      verify(mockRemoteDataSource.getNowPlayingMovies());
-      expect(result,
-          equals(Left(ConnectionFailure('Failed to connect to the network'))));
+      test('should return cached data when device is offine', () async {
+        // arrange
+        when(mockLocalDataSource.getCachedNowPlayingMovies())
+            .thenAnswer((_) async => [testMovieCache]);
+        // act
+        final result = await repository.getNowPlayingMovies();
+        // assert
+        verify(mockLocalDataSource.getCachedNowPlayingMovies());
+        final resultList = result.getOrElse(() => []);
+        expect(resultList, [testMovieFromCache]);
+      });
+
+      test('should return CacheFailure when app has no cache', () async {
+        // arrange
+        when(mockLocalDataSource.getCachedNowPlayingMovies())
+            .thenThrow(CacheException('No Cache'));
+        // act
+        final result = await repository.getNowPlayingMovies();
+        // assert
+        verify(mockLocalDataSource.getCachedNowPlayingMovies());
+        expect(result, Left(CacheFailure('No Cache')));
+      });
     });
   });
 

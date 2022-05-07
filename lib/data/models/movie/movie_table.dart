@@ -1,3 +1,4 @@
+import 'package:ditonton/data/models/movie/movie_model.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
 import 'package:equatable/equatable.dart';
@@ -29,6 +30,12 @@ class MovieTable extends Equatable {
         overview: map['overview'],
       );
 
+  factory MovieTable.fromDTO(MovieModel movie) => MovieTable(
+      id: movie.id,
+      title: movie.title,
+      posterPath: movie.posterPath,
+      overview: movie.overview);
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'title': title,
@@ -46,4 +53,6 @@ class MovieTable extends Equatable {
   @override
   // TODO: implement props
   List<Object?> get props => [id, title, posterPath, overview];
+
+  toList() {}
 }
