@@ -112,4 +112,53 @@ void main() {
       expect(() => call, throwsA(isA<ServerException>()));
     });
   });
+
+  group('Get on TV top rated', () {
+    final tTVTopRatedList = TVResponse.fromJson(
+            json.decode(readJson('dummy_data/tv_json/tv_top_rated.json')))
+        .tvlist;
+
+    test('Should return TV top rated when response status code is 200',
+        () async {
+      // arrange
+      when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/top_rated?$API_KEY')))
+          .thenAnswer((_) async => http.Response(
+              readJson('dummy_data/tv_json/tv_top_rated.json'), 200));
+      // act
+      final result = await dataSource.getTopRatedTV();
+      // assert
+      expect(result, equals(tTVTopRatedList));
+    });
+
+    test(
+        'Should throw Server Exception when response code 404 or other from TV top rated',
+        () async {
+      // arrange
+      when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/top_rated?$API_KEY')))
+          .thenAnswer((_) async => http.Response('Not Found', 404));
+      // act
+      final call = dataSource.getTopRatedTV();
+      // assert
+      expect(() => call, throwsA(isA<ServerException>()));
+    });
+  });
+
+  group('Get on TV from search', () {
+    const tQuery = 'The Amazing Spiderman';
+    final tTVSearchList = TVResponse.fromJson(
+            json.decode(readJson('dummy_data/tv_json/tv_search.json')))
+        .tvlist;
+
+    test('Should return list TV from search when status code is 200', () async {
+      // assert
+      when(mockHttpClient
+              .get(Uri.parse('$BASE_URL/search/tv?$API_KEY&query=$tQuery')))
+          .thenAnswer((_) async => http.Response(
+              readJson('dummy_data/tv_json/tv_search.json'), 200));
+      // act
+      final result = await dataSource.searchTV(tQuery);
+      // assert
+      expect(result, equals(tTVSearchList));
+    });
+  });
 }
