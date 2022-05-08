@@ -80,4 +80,36 @@ void main() {
       expect(() => call, throwsA(isA<ServerException>()));
     });
   });
+
+  group('Get on TV recommendation', () {
+    final int tId = 1;
+    final tTVRecommendation = TVResponse.fromJson(
+            json.decode(readJson('dummy_data/tv_json/tv_recommendation.json')))
+        .tvlist;
+
+    test('Should return TV Recommendation when response is 200', () async {
+      // arrange
+      when(mockHttpClient
+              .get(Uri.parse('$BASE_URL/tv/$tId/recommendations?$API_KEY')))
+          .thenAnswer((_) async => http.Response(
+              readJson('dummy_data/tv_json/tv_recommendation.json'), 200));
+      // act
+      final result = await dataSource.getTVRecommendations(tId);
+      // assert
+      expect(result, equals(tTVRecommendation));
+    });
+
+    test(
+        'Should throw Server Exception when response code 404 or other in TV recommendation',
+        () async {
+      // arrange
+      when(mockHttpClient
+              .get(Uri.parse('$BASE_URL/tv/$tId/recommendations?$API_KEY')))
+          .thenAnswer((_) async => http.Response('Not Found', 404));
+      // act
+      final call = dataSource.getTVRecommendations(tId);
+      // assert
+      expect(() => call, throwsA(isA<ServerException>()));
+    });
+  });
 }
