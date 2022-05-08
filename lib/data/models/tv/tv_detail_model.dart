@@ -13,7 +13,8 @@ class TVDetailModel extends Equatable {
       required this.posterPath,
       required this.voteAvarage,
       required this.voteCount,
-      required this.overview});
+      required this.overview,
+      required this.popularity});
 
   final String? backdropPath;
   final List<GenreModel> genres;
@@ -25,18 +26,21 @@ class TVDetailModel extends Equatable {
   final double voteAvarage;
   final int voteCount;
   final String overview;
+  final double popularity;
 
   factory TVDetailModel.fromJson(Map<String, dynamic> json) => TVDetailModel(
       backdropPath: json['backdrop_path'],
       firstAirDate: json['first_air_date'],
-      genres: List<GenreModel>.from(json['genres'].map((x) => x)),
+      genres: List<GenreModel>.from(
+          json['genres'].map((x) => GenreModel.fromJson(x))),
       id: json['id'],
       name: json['name'],
       originalName: json['original_name'],
       posterPath: json['poster_path'],
-      voteAvarage: json['vote_average'],
+      voteAvarage: json['vote_average'].toDouble(),
       voteCount: json['vote_count'],
-      overview: json['overview']);
+      overview: json['overview'],
+      popularity: json['popularity'].toDouble());
 
   Map<String, dynamic> toJson() => {
         'backdrop_path': backdropPath,
@@ -48,7 +52,8 @@ class TVDetailModel extends Equatable {
         'poster_path': posterPath,
         'vote_avarage': voteAvarage,
         'vote_count': voteCount,
-        'overview': overview
+        'overview': overview,
+        'popularity': popularity
       };
 
   TvDetail toEntity() => TvDetail(
@@ -60,7 +65,8 @@ class TVDetailModel extends Equatable {
       firstAirDate: this.firstAirDate,
       voteAvarage: this.voteAvarage,
       voteCount: this.voteCount,
-      name: this.name);
+      name: this.name,
+      popularity: this.popularity);
 
   @override
   List<Object?> get props => [
