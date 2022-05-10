@@ -58,7 +58,7 @@ class TVDetailModel extends Equatable {
 
   TvDetail toEntity() => TvDetail(
       id: this.id,
-      genres: genres,
+      genres: this.genres.map((e) => e.toEntity()).toList(),
       originalName: this.originalName,
       overview: this.overview,
       posterPath: this.posterPath,

@@ -4,6 +4,7 @@ import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
 import 'package:ditonton/domain/entities/tv/tv.dart';
+import 'package:ditonton/domain/entities/tv/tv_detail.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -131,3 +132,15 @@ final tTv = TV(
     popularity: 1);
 
 final tTvList = <TV>[tTv];
+
+final tTVDetail = TvDetail(
+    id: 1,
+    genres: [Genre(id: 1, name: 'Name')],
+    originalName: 'original Name',
+    overview: 'overview',
+    posterPath: 'posterPath',
+    firstAirDate: 'firstAirDate',
+    voteAvarage: 1.0,
+    voteCount: 23,
+    name: 'name',
+    popularity: 1000);
