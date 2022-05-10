@@ -1,10 +1,16 @@
+import 'package:ditonton/data/models/genre_model.dart';
 import 'package:ditonton/data/models/movie/movie_model.dart';
 import 'package:ditonton/data/models/movie/movie_table.dart';
+import 'package:ditonton/data/models/tv/tv_detail_model.dart';
+import 'package:ditonton/data/models/tv/tv_model.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
 import 'package:ditonton/domain/entities/tv/tv.dart';
 import 'package:ditonton/domain/entities/tv/tv_detail.dart';
+
+final tId = 1;
+final String tQuery = 'The Amazing Spiderman';
 
 final testMovie = Movie(
   adult: false,
@@ -119,21 +125,8 @@ final tMovie = Movie(
   voteCount: 13507,
 );
 
-final tTv = TV(
-    backdropPath: 'backdropPath',
-    genreIds: [1, 2, 3, 4],
-    id: 1,
-    overview: 'overview',
-    posterPath: 'posterPath',
-    name: 'name',
-    originalName: 'Original Name',
-    voteAverage: 1.0,
-    voteCount: 2,
-    popularity: 1);
-
-final tTvList = <TV>[tTv];
-
 final tTVDetail = TvDetail(
+    backdropPath: 'backdropPath',
     id: 1,
     genres: [Genre(id: 1, name: 'Name')],
     originalName: 'original Name',
@@ -144,3 +137,44 @@ final tTVDetail = TvDetail(
     voteCount: 23,
     name: 'name',
     popularity: 1000);
+
+final tTVDetailModel = TVDetailModel(
+    backdropPath: 'backdropPath',
+    id: 1,
+    genres: [GenreModel(id: 1, name: 'Name')],
+    originalName: 'original Name',
+    overview: 'overview',
+    posterPath: 'posterPath',
+    firstAirDate: 'firstAirDate',
+    voteAvarage: 1.0,
+    voteCount: 23,
+    name: 'name',
+    popularity: 1000);
+
+final tTv = TV(
+    backdropPath: 'backdropPath',
+    genreIds: [1, 2, 3, 4],
+    id: 1,
+    name: 'name',
+    originalName: 'original name',
+    overview: 'overview',
+    posterPath: 'poster path',
+    voteAverage: 1.0,
+    voteCount: 123,
+    popularity: 2003);
+
+final tTvList = <TV>[tTv];
+
+final tTVModel = TVModel(
+    backdropPath: 'backdropPath',
+    genreIds: [1, 2, 3, 4],
+    id: 1,
+    name: 'name',
+    originalName: 'original name',
+    overview: 'overview',
+    posterPath: 'poster path',
+    voteAverage: 1.0,
+    voteCount: 123,
+    popularity: 2003);
+
+final tTVmodelList = <TVModel>[tTVModel];

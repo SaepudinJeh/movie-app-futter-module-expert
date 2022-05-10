@@ -16,7 +16,7 @@ class TVDetailModel extends Equatable {
       required this.overview,
       required this.popularity});
 
-  final String? backdropPath;
+  final String backdropPath;
   final List<GenreModel> genres;
   final int id;
   final String name;
@@ -57,6 +57,7 @@ class TVDetailModel extends Equatable {
       };
 
   TvDetail toEntity() => TvDetail(
+      backdropPath: this.backdropPath,
       id: this.id,
       genres: this.genres.map((e) => e.toEntity()).toList(),
       originalName: this.originalName,
