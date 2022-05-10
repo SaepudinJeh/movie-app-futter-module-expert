@@ -3,6 +3,7 @@ import 'package:ditonton/data/models/movie/movie_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
+import 'package:ditonton/domain/entities/tv/tv.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -116,3 +117,17 @@ final tMovie = Movie(
   voteAverage: 7.2,
   voteCount: 13507,
 );
+
+final tTv = TV(
+    backdropPath: 'backdropPath',
+    genreIds: [1, 2, 3, 4],
+    id: 1,
+    overview: 'overview',
+    posterPath: 'posterPath',
+    name: 'name',
+    originalName: 'Original Name',
+    voteAverage: 1.0,
+    voteCount: 2,
+    popularity: 1);
+
+final tTvList = <TV>[tTv];
