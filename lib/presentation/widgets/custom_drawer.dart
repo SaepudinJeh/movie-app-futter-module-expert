@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../pages/about_page.dart';
-import '../pages/watchlist_movies_page.dart';
+import '../pages/movie/watchlist_movies_page.dart';
 
 class CustomDrawer extends StatefulWidget {
   final Widget content;
