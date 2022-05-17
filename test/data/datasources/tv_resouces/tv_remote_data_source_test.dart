@@ -8,6 +8,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:http/http.dart' as http;
 
+import '../../../dummy_data/dummy_objects.dart';
 import '../../../helpers/test_helper.mocks.dart';
 import '../../../json_reader.dart';
 
@@ -53,7 +54,6 @@ void main() {
   });
 
   group('Get on TV detail', () {
-    final tId = 1;
     final tTVDetail = TVDetailModel.fromJson(
         json.decode(readJson('dummy_data/tv_json/tv_detail.json')));
 
