@@ -2,7 +2,9 @@ import 'package:ditonton/presentation/pages/movie/movie_list.dart';
 import 'package:ditonton/presentation/pages/movie/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/movie/search_page.dart';
 import 'package:ditonton/presentation/pages/movie/top_rated_movies_page.dart';
-import 'package:ditonton/presentation/pages/tv/tv_list.dart';
+import 'package:ditonton/presentation/pages/tv/tv_list_pages.dart';
+import 'package:ditonton/presentation/pages/tv/tv_popular_pages.dart';
+import 'package:ditonton/presentation/pages/tv/tv_top_rated_pages.dart';
 import 'package:ditonton/presentation/provider/movies/movie_list_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/provider/tv/tv_list_notifier.dart';
@@ -11,12 +13,14 @@ import 'package:provider/provider.dart';
 
 import '../../common/constants.dart';
 
-class HomeMoviePage extends StatefulWidget {
+class HomePage extends StatefulWidget {
+  static const ROUTE_NAME = '/';
+
   @override
-  _HomeMoviePageState createState() => _HomeMoviePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeMoviePageState extends State<HomeMoviePage> {
+class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
@@ -104,7 +108,13 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 }
               }),
               Divider(color: Colors.white, height: 65.0),
-              _buildSubHeading(title: 'On The Air TV Series', onTap: () {}),
+              Padding(
+                padding: const EdgeInsets.only(left: 8.0),
+                child: Text(
+                  'On The Air TV Series',
+                  style: kHeading6,
+                ),
+              ),
               Consumer<TVListNotifier>(builder: (context, data, child) {
                 final state = data.onTheAirTVState;
 
@@ -116,7 +126,10 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   return Text('Failed');
                 }
               }),
-              _buildSubHeading(title: 'On Popular TV Series', onTap: () {}),
+              _buildSubHeading(
+                  title: 'On Popular TV Series',
+                  onTap: () =>
+                      Navigator.pushNamed(context, PopularTVPage.ROUTE_NAME)),
               Consumer<TVListNotifier>(builder: (context, data, child) {
                 final state = data.onPopularTVState;
 
@@ -128,7 +141,10 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                   return Text('Failed');
                 }
               }),
-              _buildSubHeading(title: 'Top Rated TV Series', onTap: () {}),
+              _buildSubHeading(
+                  title: 'Top Rated TV Series',
+                  onTap: () =>
+                      Navigator.pushNamed(context, TopRatedTVPage.ROUTE_NAME)),
               Consumer<TVListNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTVState;
 

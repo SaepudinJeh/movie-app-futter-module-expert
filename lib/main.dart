@@ -1,5 +1,6 @@
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/utils.dart';
+import 'package:ditonton/domain/usecases/tv/search_tv.dart';
 import 'package:ditonton/presentation/pages/about_page.dart';
 import 'package:ditonton/presentation/pages/movie/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/home_page.dart';
@@ -7,7 +8,11 @@ import 'package:ditonton/presentation/pages/movie/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/movie/search_page.dart';
 import 'package:ditonton/presentation/pages/movie/top_rated_movies_page.dart';
 import 'package:ditonton/presentation/pages/movie/watchlist_movies_page.dart';
-import 'package:ditonton/presentation/pages/tv/tv_detail.dart';
+import 'package:ditonton/presentation/pages/tv/search_tv_page.dart';
+import 'package:ditonton/presentation/pages/tv/tv_detail_pages.dart';
+import 'package:ditonton/presentation/pages/tv/tv_home_page.dart';
+import 'package:ditonton/presentation/pages/tv/tv_popular_pages.dart';
+import 'package:ditonton/presentation/pages/tv/tv_top_rated_pages.dart';
 import 'package:ditonton/presentation/provider/movies/movie_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/movies/movie_list_notifier.dart';
 import 'package:ditonton/presentation/provider/movies/movie_search_notifier.dart';
@@ -16,6 +21,9 @@ import 'package:ditonton/presentation/provider/movies/top_rated_movies_notifier.
 import 'package:ditonton/presentation/provider/movies/watchlist_movie_notifier.dart';
 import 'package:ditonton/presentation/provider/tv/tv_detail_notifier.dart';
 import 'package:ditonton/presentation/provider/tv/tv_list_notifier.dart';
+import 'package:ditonton/presentation/provider/tv/tv_popular_notifier.dart';
+import 'package:ditonton/presentation/provider/tv/tv_search_notifier.dart';
+import 'package:ditonton/presentation/provider/tv/tv_top_rated_notifier.dart';
 import 'package:ditonton/presentation/widgets/custom_drawer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -54,6 +62,9 @@ class MyApp extends StatelessWidget {
         // TV
         ChangeNotifierProvider(create: (_) => di.locator<TVListNotifier>()),
         ChangeNotifierProvider(create: (_) => di.locator<TVDetailNotifier>()),
+        ChangeNotifierProvider(create: (_) => di.locator<PopularTVNotifier>()),
+        ChangeNotifierProvider(create: (_) => di.locator<TopRatedTVNotifier>()),
+        ChangeNotifierProvider(create: (_) => di.locator<SearchTVNotifier>())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -64,12 +75,12 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: kRichBlack,
           textTheme: kTextTheme,
         ),
-        home: Material(child: CustomDrawer(content: HomeMoviePage())),
+        home: Material(child: CustomDrawer(content: HomePage())),
         navigatorObservers: [routeObserver],
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
-            case '/home':
-              return MaterialPageRoute(builder: (_) => HomeMoviePage());
+            case HomePage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => HomePage());
             case PopularMoviesPage.ROUTE_NAME:
               return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
             case TopRatedMoviesPage.ROUTE_NAME:
@@ -89,6 +100,14 @@ class MyApp extends StatelessWidget {
             case TVDetailPage.ROUTE_NAME:
               return MaterialPageRoute(
                   builder: (_) => TVDetailPage(id: settings.arguments as int));
+            case PopularTVPage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => PopularTVPage());
+            case TopRatedTVPage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => TopRatedTVPage());
+            case HomeTVPage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => HomeTVPage());
+            case SearchTVPage.ROUTE_NAME:
+              return MaterialPageRoute(builder: (_) => SearchTVPage());
             default:
               return MaterialPageRoute(builder: (_) {
                 return Scaffold(

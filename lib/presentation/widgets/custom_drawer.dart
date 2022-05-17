@@ -1,3 +1,5 @@
+import 'package:ditonton/presentation/pages/home_page.dart';
+import 'package:ditonton/presentation/pages/tv/tv_home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/about_page.dart';
@@ -49,17 +51,17 @@ class _CustomDrawerState extends State<CustomDrawer>
                       accountEmail: Text('ditonton@dicoding.com'),
                     ),
                     ListTile(
-                      leading: Icon(Icons.movie_filter_outlined),
-                      title: Text('Movies'),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    ListTile(
                       leading: Icon(Icons.live_tv_rounded),
                       title: Text('Watching TV'),
                       onTap: () {
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, HomePage.ROUTE_NAME);
+                      },
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.tv_rounded),
+                      title: Text('Watching TV Series'),
+                      onTap: () {
+                        Navigator.pushNamed(context, HomeTVPage.ROUTE_NAME);
                       },
                     ),
                     ListTile(
