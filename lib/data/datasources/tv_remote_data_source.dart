@@ -51,7 +51,7 @@ class TVRemoteDataSourceImpl implements TVRemoteDataSource {
 
   @override
   Future<TVDetailModel> getTVDetail(int id) async {
-    final response = await client.get(Uri.parse('$BASE_URL/tv/id$id?$API_KEY'));
+    final response = await client.get(Uri.parse('$BASE_URL/tv/$id?$API_KEY'));
 
     if (response.statusCode == 200) {
       return TVDetailModel.fromJson(json.decode(response.body));

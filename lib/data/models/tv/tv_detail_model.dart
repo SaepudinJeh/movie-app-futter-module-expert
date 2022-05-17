@@ -29,7 +29,7 @@ class TVDetailModel extends Equatable {
   final double popularity;
 
   factory TVDetailModel.fromJson(Map<String, dynamic> json) => TVDetailModel(
-      backdropPath: json['backdrop_path'],
+      backdropPath: json['backdrop_path'] as String,
       firstAirDate: json['first_air_date'],
       genres: List<GenreModel>.from(
           json['genres'].map((x) => GenreModel.fromJson(x))),
