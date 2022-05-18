@@ -3,6 +3,7 @@ import 'package:ditonton/data/models/movie/movie_model.dart';
 import 'package:ditonton/data/models/movie/movie_table.dart';
 import 'package:ditonton/data/models/tv/tv_detail_model.dart';
 import 'package:ditonton/data/models/tv/tv_model.dart';
+import 'package:ditonton/data/models/tv/tv_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
@@ -178,3 +179,9 @@ final tTVModel = TVModel(
     popularity: 2003);
 
 final tTVmodelList = <TVModel>[tTVModel];
+
+final tTVTable = TVTable(
+    id: 1, name: 'name', posterPath: 'posterPath', overview: 'overview');
+
+final tWatchlistTV = TV.whatchlist(
+    id: 1, overview: 'overview', posterPath: 'posterPath', name: 'name');

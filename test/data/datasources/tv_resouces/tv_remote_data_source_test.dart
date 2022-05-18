@@ -59,7 +59,7 @@ void main() {
 
     test('Should return TV detail when status code is 200', () async {
       // arrange
-      when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/id$tId?$API_KEY')))
+      when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/$tId?$API_KEY')))
           .thenAnswer((_) async => http.Response(
               readJson('dummy_data/tv_json/tv_detail.json'), 200));
       // act
@@ -72,7 +72,7 @@ void main() {
         'Should throw Server Exception when response code 404 or other in TV detail',
         () async {
       // arrange
-      when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/id$tId?$API_KEY')))
+      when(mockHttpClient.get(Uri.parse('$BASE_URL/tv/$tId?$API_KEY')))
           .thenAnswer((_) async => http.Response('Not Found', 404));
       // act
       final call = dataSource.getTVDetail(tId);
