@@ -1,5 +1,6 @@
 import 'package:ditonton/presentation/pages/home_page.dart';
 import 'package:ditonton/presentation/pages/tv/tv_home_page.dart';
+import 'package:ditonton/presentation/pages/tv/watchlist_tv_page.dart';
 import 'package:flutter/material.dart';
 
 import '../pages/about_page.dart';
@@ -77,7 +78,7 @@ class _CustomDrawerState extends State<CustomDrawer>
                       title: Text('Watchlist TV'),
                       onTap: () {
                         Navigator.pushNamed(
-                            context, WatchlistMoviesPage.ROUTE_NAME);
+                            context, WatchlistTVPage.ROUTE_NAME);
                       },
                     ),
                     ListTile(
