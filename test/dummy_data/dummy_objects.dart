@@ -1,14 +1,9 @@
-import 'package:ditonton/data/models/genre_model.dart';
-import 'package:ditonton/data/models/movie/movie_model.dart';
-import 'package:ditonton/data/models/movie/movie_table.dart';
-import 'package:ditonton/data/models/tv/tv_detail_model.dart';
-import 'package:ditonton/data/models/tv/tv_model.dart';
-import 'package:ditonton/data/models/tv/tv_table.dart';
+import 'package:ditonton/data/models/movie_model.dart';
+import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
+import 'package:tv_series/tv_series.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
-import 'package:ditonton/domain/entities/tv/tv.dart';
-import 'package:ditonton/domain/entities/tv/tv_detail.dart';
 
 final tId = 1;
 final String tQuery = 'The Amazing Spiderman';
@@ -35,7 +30,7 @@ final testMovieList = [testMovie];
 final testMovieDetail = MovieDetail(
   adult: false,
   backdropPath: 'backdropPath',
-  genres: [Genre(id: 1, name: 'Action')],
+  genres: [GenreMovie(id: 1, name: 'Action')],
   id: 1,
   originalTitle: 'originalTitle',
   overview: 'overview',
@@ -129,7 +124,7 @@ final tMovie = Movie(
 final tTVDetail = TvDetail(
     backdropPath: 'backdropPath',
     id: 1,
-    genres: [Genre(id: 1, name: 'Name')],
+    genres: [GenreTv(id: 1, name: 'Name')],
     originalName: 'original Name',
     overview: 'overview',
     posterPath: 'posterPath',

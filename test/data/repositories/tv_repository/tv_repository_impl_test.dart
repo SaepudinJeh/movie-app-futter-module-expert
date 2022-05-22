@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:commons/commons.dart';
-import 'package:ditonton/data/repositories/tv_repository_impl.dart';
+import 'package:tv_series/data/repositories/tv_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

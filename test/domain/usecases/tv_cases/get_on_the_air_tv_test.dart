@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/domain/entities/tv/tv.dart';
-import 'package:ditonton/domain/usecases/tv/get_on_the_airing_tv_series.dart';
+import 'package:tv_series/tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 

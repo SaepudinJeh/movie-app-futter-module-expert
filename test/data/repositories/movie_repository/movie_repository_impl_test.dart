@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:ditonton/data/models/genre_model.dart';
-import 'package:ditonton/data/models/movie/movie_detail_model.dart';
-import 'package:ditonton/data/models/movie/movie_model.dart';
+import 'package:ditonton/data/models/movie_detail_model.dart';
+import 'package:ditonton/data/models/movie_model.dart';
 import 'package:ditonton/data/repositories/movie_repository_impl.dart';
 import 'package:commons/commons.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';

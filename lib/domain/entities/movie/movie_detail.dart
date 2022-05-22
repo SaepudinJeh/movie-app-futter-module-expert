@@ -19,7 +19,7 @@ class MovieDetail extends Equatable {
 
   final bool adult;
   final String? backdropPath;
-  final List<Genre> genres;
+  final List<GenreMovie> genres;
   final int id;
   final String originalTitle;
   final String overview;

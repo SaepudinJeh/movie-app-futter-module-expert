@@ -2,14 +2,12 @@ import 'package:ditonton/presentation/pages/movie/movie_list.dart';
 import 'package:ditonton/presentation/pages/movie/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/movie/search_page.dart';
 import 'package:ditonton/presentation/pages/movie/top_rated_movies_page.dart';
-import 'package:ditonton/presentation/pages/tv/tv_list_pages.dart';
-import 'package:ditonton/presentation/pages/tv/tv_popular_pages.dart';
-import 'package:ditonton/presentation/pages/tv/tv_top_rated_pages.dart';
 import 'package:ditonton/presentation/provider/movies/movie_list_notifier.dart';
 import 'package:commons/commons.dart';
-import 'package:ditonton/presentation/provider/tv/tv_list_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import 'package:tv_series/tv_series.dart';
 
 class HomePage extends StatefulWidget {
   static const ROUTE_NAME = '/';

@@ -12,23 +12,23 @@ import 'package:ditonton/data/datasources/db/database_helper.dart' as _i22;
 import 'package:ditonton/data/datasources/movie_local_data_source.dart' as _i18;
 import 'package:ditonton/data/datasources/movie_remote_data_source.dart'
     as _i14;
-import 'package:ditonton/data/datasources/tv_local_data_source.dart' as _i20;
-import 'package:ditonton/data/datasources/tv_remote_data_source.dart' as _i16;
-import 'package:ditonton/data/models/movie/movie_detail_model.dart' as _i3;
-import 'package:ditonton/data/models/movie/movie_model.dart' as _i15;
-import 'package:ditonton/data/models/movie/movie_table.dart' as _i19;
-import 'package:ditonton/data/models/tv/tv_detail_model.dart' as _i4;
-import 'package:ditonton/data/models/tv/tv_model.dart' as _i17;
-import 'package:ditonton/data/models/tv/tv_table.dart' as _i21;
+import 'package:ditonton/data/models/movie_detail_model.dart' as _i3;
+import 'package:ditonton/data/models/movie_model.dart' as _i15;
+import 'package:ditonton/data/models/movie_table.dart' as _i19;
 import 'package:ditonton/domain/entities/movie/movie.dart' as _i9;
 import 'package:ditonton/domain/entities/movie/movie_detail.dart' as _i10;
-import 'package:ditonton/domain/entities/tv/tv.dart' as _i12;
-import 'package:ditonton/domain/entities/tv/tv_detail.dart' as _i13;
 import 'package:ditonton/domain/repositories/movie_repository.dart' as _i6;
-import 'package:ditonton/domain/repositories/tv_repository.dart' as _i11;
 import 'package:http/http.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:sqflite/sqflite.dart' as _i23;
+import 'package:tv_series/data/datasources/tv_local_data_source.dart' as _i20;
+import 'package:tv_series/data/datasources/tv_remote_data_source.dart' as _i16;
+import 'package:tv_series/data/models/tv_detail_model.dart' as _i4;
+import 'package:tv_series/data/models/tv_model.dart' as _i17;
+import 'package:tv_series/data/models/tv_table.dart' as _i21;
+import 'package:tv_series/domain/entities/tv.dart' as _i12;
+import 'package:tv_series/domain/entities/tv_detail.dart' as _i13;
+import 'package:tv_series/domain/repositories/tv_repository.dart' as _i11;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -395,25 +395,6 @@ class MockDatabaseHelper extends _i1.Mock implements _i22.DatabaseHelper {
   @override
   _i7.Future<List<Map<String, dynamic>>> getWatchlistMovies() =>
       (super.noSuchMethod(Invocation.method(#getWatchlistMovies, []),
-              returnValue: Future<List<Map<String, dynamic>>>.value(
-                  <Map<String, dynamic>>[]))
-          as _i7.Future<List<Map<String, dynamic>>>);
-  @override
-  _i7.Future<int> insertWatchlistTV(_i21.TVTable? tv) =>
-      (super.noSuchMethod(Invocation.method(#insertWatchlistTV, [tv]),
-          returnValue: Future<int>.value(0)) as _i7.Future<int>);
-  @override
-  _i7.Future<int> removeWatchlistTV(_i21.TVTable? tv) =>
-      (super.noSuchMethod(Invocation.method(#removeWatchlistTV, [tv]),
-          returnValue: Future<int>.value(0)) as _i7.Future<int>);
-  @override
-  _i7.Future<Map<String, dynamic>?> getTVById(int? id) =>
-      (super.noSuchMethod(Invocation.method(#getTVById, [id]),
-              returnValue: Future<Map<String, dynamic>?>.value())
-          as _i7.Future<Map<String, dynamic>?>);
-  @override
-  _i7.Future<List<Map<String, dynamic>>> getWatchlistTV() =>
-      (super.noSuchMethod(Invocation.method(#getWatchlistTV, []),
               returnValue: Future<List<Map<String, dynamic>>>.value(
                   <Map<String, dynamic>>[]))
           as _i7.Future<List<Map<String, dynamic>>>);
