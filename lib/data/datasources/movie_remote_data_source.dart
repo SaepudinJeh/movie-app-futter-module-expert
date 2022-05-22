@@ -1,6 +1,6 @@
 import 'dart:convert';
+import 'package:commons/commons.dart';
 
-import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/data/models/movie/movie_detail_model.dart';
 import 'package:ditonton/data/models/movie/movie_model.dart';
 import 'package:ditonton/data/models/movie/movie_response.dart';

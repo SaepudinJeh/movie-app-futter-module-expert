@@ -1,6 +1,4 @@
-import 'package:ditonton/common/constants.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/presentation/pages/movie/search_page.dart';
+import 'package:commons/commons.dart';
 import 'package:ditonton/presentation/pages/tv/search_tv_page.dart';
 import 'package:ditonton/presentation/pages/tv/tv_list_pages.dart';
 import 'package:ditonton/presentation/pages/tv/tv_popular_pages.dart';

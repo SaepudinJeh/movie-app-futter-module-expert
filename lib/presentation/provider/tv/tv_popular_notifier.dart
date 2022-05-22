@@ -1,8 +1,7 @@
 import 'package:ditonton/domain/entities/tv/tv.dart';
 import 'package:ditonton/domain/usecases/tv/get_popular_tv_series.dart';
 import 'package:flutter/material.dart';
-
-import '../../../common/state_enum.dart';
+import 'package:commons/commons.dart';
 
 class PopularTVNotifier extends ChangeNotifier {
   final GetPopularTVSeries getTVPopular;
