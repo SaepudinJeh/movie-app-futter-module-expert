@@ -8,18 +8,17 @@ import 'dart:typed_data' as _i25;
 
 import 'package:commons/commons.dart' as _i8;
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:ditonton/data/datasources/db/database_helper.dart' as _i22;
-import 'package:ditonton/data/datasources/movie_local_data_source.dart' as _i18;
-import 'package:ditonton/data/datasources/movie_remote_data_source.dart'
-    as _i14;
-import 'package:ditonton/data/models/movie_detail_model.dart' as _i3;
-import 'package:ditonton/data/models/movie_model.dart' as _i15;
-import 'package:ditonton/data/models/movie_table.dart' as _i19;
-import 'package:ditonton/domain/entities/movie/movie.dart' as _i9;
-import 'package:ditonton/domain/entities/movie/movie_detail.dart' as _i10;
-import 'package:ditonton/domain/repositories/movie_repository.dart' as _i6;
 import 'package:http/http.dart' as _i5;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:movies/data/datasources/db/database_helper.dart' as _i22;
+import 'package:movies/data/datasources/movie_local_data_source.dart' as _i18;
+import 'package:movies/data/datasources/movie_remote_data_source.dart' as _i14;
+import 'package:movies/data/models/movie_detail_model.dart' as _i3;
+import 'package:movies/data/models/movie_model.dart' as _i15;
+import 'package:movies/data/models/movie_table.dart' as _i19;
+import 'package:movies/domain/entities/movie.dart' as _i9;
+import 'package:movies/domain/entities/movie_detail.dart' as _i10;
+import 'package:movies/domain/repositories/movie_repository.dart' as _i6;
 import 'package:sqflite/sqflite.dart' as _i23;
 import 'package:tv_series/data/datasources/tv_local_data_source.dart' as _i20;
 import 'package:tv_series/data/datasources/tv_remote_data_source.dart' as _i16;
@@ -349,11 +348,12 @@ class MockTVLocalDataSource extends _i1.Mock implements _i20.TVLocalDataSource {
           as _i7.Future<List<_i21.TVTable>>);
 }
 
-/// A class which mocks [DatabaseHelper].
+/// A class which mocks [DatabaseMovieHelper].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockDatabaseHelper extends _i1.Mock implements _i22.DatabaseHelper {
-  MockDatabaseHelper() {
+class MockDatabaseMovieHelper extends _i1.Mock
+    implements _i22.DatabaseMovieHelper {
+  MockDatabaseMovieHelper() {
     _i1.throwOnMissingStub(this);
   }
 

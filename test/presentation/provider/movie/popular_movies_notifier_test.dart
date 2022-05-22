@@ -1,13 +1,11 @@
 import 'package:dartz/dartz.dart';
 import 'package:commons/commons.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/usecases/movie/get_popular_movies.dart';
-import 'package:ditonton/presentation/provider/movies/popular_movies_notifier.dart';
+import 'package:movies/movies.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
-import 'popular_movies_notifier_test.mocks.dart';
+import 'movie_list_notifier_test.mocks.dart';
 
 @GenerateMocks([GetPopularMovies])
 void main() {

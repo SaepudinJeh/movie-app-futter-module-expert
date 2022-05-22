@@ -1,9 +1,5 @@
-import 'package:ditonton/data/models/movie_model.dart';
-import 'package:ditonton/data/models/movie_table.dart';
-import 'package:ditonton/domain/entities/genre.dart';
+import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/entities/movie/movie_detail.dart';
 
 final tId = 1;
 final String tQuery = 'The Amazing Spiderman';
@@ -137,7 +133,7 @@ final tTVDetail = TvDetail(
 final tTVDetailModel = TVDetailModel(
     backdropPath: 'backdropPath',
     id: 1,
-    genres: [GenreModel(id: 1, name: 'Name')],
+    genres: [GenreTVModel(id: 1, name: 'Name')],
     originalName: 'original Name',
     overview: 'overview',
     posterPath: 'posterPath',

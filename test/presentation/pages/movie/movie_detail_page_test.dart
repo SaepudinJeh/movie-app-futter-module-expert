@@ -1,7 +1,5 @@
 import 'package:commons/commons.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/presentation/pages/movie/movie_detail_page.dart';
-import 'package:ditonton/presentation/provider/movies/movie_detail_notifier.dart';
+import 'package:movies/movies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';

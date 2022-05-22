@@ -1,8 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:commons/commons.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/usecases/movie/search_movies.dart';
-import 'package:ditonton/presentation/provider/movies/movie_search_notifier.dart';
+import 'package:movies/movies.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
