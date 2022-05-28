@@ -57,17 +57,17 @@ class TVDetailModel extends Equatable {
       };
 
   TvDetail toEntity() => TvDetail(
-      backdropPath: this.backdropPath,
-      id: this.id,
-      genres: this.genres.map((e) => e.toEntity()).toList(),
-      originalName: this.originalName,
-      overview: this.overview,
-      posterPath: this.posterPath,
-      firstAirDate: this.firstAirDate,
-      voteAvarage: this.voteAvarage,
-      voteCount: this.voteCount,
-      name: this.name,
-      popularity: this.popularity);
+      backdropPath: backdropPath,
+      id: id,
+      genres: genres.map((e) => e.toEntity()).toList(),
+      originalName: originalName,
+      overview: overview,
+      posterPath: posterPath,
+      firstAirDate: firstAirDate,
+      voteAvarage: voteAvarage,
+      voteCount: voteCount,
+      name: name,
+      popularity: popularity);
 
   @override
   List<Object?> get props => [

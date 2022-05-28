@@ -72,7 +72,7 @@
 <a name="10"><span class="lineNum">      10 </span>            : import 'package:provider/provider.dart';</a>
 <a name="11"><span class="lineNum">      11 </span>            : </a>
 <a name="12"><span class="lineNum">      12 </span>            : class MovieDetailPage extends StatefulWidget {</a>
-<a name="13"><span class="lineNum">      13 </span>            :   static const ROUTE_NAME = '/detail';</a>
+<a name="13"><span class="lineNum">      13 </span>            :   static const routeName = '/detail';</a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
 <a name="15"><span class="lineNum">      15 </span>            :   final int id;</a>
 <a name="16"><span class="lineNum">      16 </span><span class="lineCov">          1 :   MovieDetailPage({required this.id});</span></a>
@@ -271,7 +271,7 @@
 <a name="209"><span class="lineNum">     209 </span><span class="lineNoCov">          0 :                                             onTap: () {</span></a>
 <a name="210"><span class="lineNum">     210 </span><span class="lineNoCov">          0 :                                               Navigator.pushReplacementNamed(</span></a>
 <a name="211"><span class="lineNum">     211 </span>            :                                                 context,</a>
-<a name="212"><span class="lineNum">     212 </span>            :                                                 MovieDetailPage.ROUTE_NAME,</a>
+<a name="212"><span class="lineNum">     212 </span>            :                                                 MovieDetailPage.routeName,</a>
 <a name="213"><span class="lineNum">     213 </span><span class="lineNoCov">          0 :                                                 arguments: movie.id,</span></a>
 <a name="214"><span class="lineNum">     214 </span>            :                                               );</a>
 <a name="215"><span class="lineNum">     215 </span>            :                                             },</a>

@@ -40,55 +40,52 @@ class _CustomDrawerState extends State<CustomDrawer>
             double scale = 1 - (_animationController.value * 0.3);
 
             return Stack(children: [
-              Container(
-                child: Column(
-                  children: [
-                    const UserAccountsDrawerHeader(
-                      currentAccountPicture: CircleAvatar(
-                        backgroundImage: AssetImage('assets/circle-g.png'),
-                      ),
-                      accountName: Text('Ditonton'),
-                      accountEmail: Text('ditonton@dicoding.com'),
+              Column(
+                children: [
+                  const UserAccountsDrawerHeader(
+                    currentAccountPicture: CircleAvatar(
+                      backgroundImage: AssetImage('assets/circle-g.png'),
                     ),
-                    ListTile(
-                      leading: const Icon(Icons.live_tv_rounded),
-                      title: const Text('Watching TV'),
-                      onTap: () {
-                        Navigator.pushNamed(context, HomePage.ROUTE_NAME);
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.tv_rounded),
-                      title: const Text('Watching TV Series'),
-                      onTap: () {
-                        Navigator.pushNamed(context, HomeTVPage.ROUTE_NAME);
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.save_alt_rounded),
-                      title: const Text('Watchlist Movie'),
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, WatchlistMoviesPage.ROUTE_NAME);
-                      },
-                    ),
-                    ListTile(
-                      leading: const Icon(Icons.save_alt_rounded),
-                      title: const Text('Watchlist TV'),
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, WatchlistTVPage.ROUTE_NAME);
-                      },
-                    ),
-                    ListTile(
-                      onTap: () {
-                        Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
-                      },
-                      leading: const Icon(Icons.info_outline_rounded),
-                      title: const Text('About'),
-                    ),
-                  ],
-                ),
+                    accountName: Text('Ditonton'),
+                    accountEmail: Text('ditonton@dicoding.com'),
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.live_tv_rounded),
+                    title: const Text('Watching TV'),
+                    onTap: () {
+                      Navigator.pushNamed(context, HomePage.routeName);
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.tv_rounded),
+                    title: const Text('Watching TV Series'),
+                    onTap: () {
+                      Navigator.pushNamed(context, HomeTVPage.routeName);
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.save_alt_rounded),
+                    title: const Text('Watchlist Movie'),
+                    onTap: () {
+                      Navigator.pushNamed(
+                          context, WatchlistMoviesPage.routeName);
+                    },
+                  ),
+                  ListTile(
+                    leading: const Icon(Icons.save_alt_rounded),
+                    title: const Text('Watchlist TV'),
+                    onTap: () {
+                      Navigator.pushNamed(context, WatchlistTVPage.routeName);
+                    },
+                  ),
+                  ListTile(
+                    onTap: () {
+                      Navigator.pushNamed(context, AboutPage.routeName);
+                    },
+                    leading: const Icon(Icons.info_outline_rounded),
+                    title: const Text('About'),
+                  ),
+                ],
               ),
               Transform(
                 transform: Matrix4.identity()

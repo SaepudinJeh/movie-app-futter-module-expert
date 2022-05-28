@@ -4,10 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:movies/movies.dart';
 
-import 'package:tv_series/tv_series.dart';
-
 class HomePage extends StatefulWidget {
-  static const ROUTE_NAME = '/';
+  static const routeName = '/';
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -31,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SearchPage.routeName);
             },
             icon: const Icon(Icons.search),
           )
@@ -62,7 +60,7 @@ class _HomePageState extends State<HomePage> {
               _buildSubHeading(
                 title: 'Popular',
                 onTap: () =>
-                    Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
+                    Navigator.pushNamed(context, PopularMoviesPage.routeName),
               ),
               BlocBuilder<PopularMoviesBloc, PopularMoviesState>(
                   builder: (context, state) {
@@ -79,7 +77,7 @@ class _HomePageState extends State<HomePage> {
               _buildSubHeading(
                 title: 'Top Rated',
                 onTap: () =>
-                    Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
+                    Navigator.pushNamed(context, TopRatedMoviesPage.routeName),
               ),
               BlocBuilder<TopRatedMoviesBloc, TopRatedMoviesState>(
                   builder: (context, state) {
@@ -115,7 +113,7 @@ class _HomePageState extends State<HomePage> {
               // _buildSubHeading(
               //     title: 'On Popular TV Series',
               //     onTap: () =>
-              //         Navigator.pushNamed(context, PopularTVPage.ROUTE_NAME)),
+              //         Navigator.pushNamed(context, PopularTVPage.routeName)),
               // Consumer<TVListNotifier>(builder: (context, data, child) {
               //   final state = data.onPopularTVState;
 
@@ -130,7 +128,7 @@ class _HomePageState extends State<HomePage> {
               // _buildSubHeading(
               //     title: 'Top Rated TV Series',
               //     onTap: () =>
-              //         Navigator.pushNamed(context, TopRatedTVPage.ROUTE_NAME)),
+              //         Navigator.pushNamed(context, TopRatedTVPage.routeName)),
               // Consumer<TVListNotifier>(builder: (context, data, child) {
               //   final state = data.topRatedTVState;
 

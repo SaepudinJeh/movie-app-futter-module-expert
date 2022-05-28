@@ -10,7 +10,7 @@ import 'package:get_it/get_it.dart';
 final locator = GetIt.instance;
 
 void init() {
-  // provider
+  // bloc
   // Movie
   locator.registerFactory(
     () => NowPlayingMovieBloc(locator()),
@@ -32,20 +32,14 @@ void init() {
     () => WatchlistMoviesBloc(locator(), locator(), locator(), locator()),
   );
   // TV
-  locator.registerFactory(() => TVListNotifier(
-      getOnTheAirTVSeries: locator(),
-      getPopularTVSeries: locator(),
-      getTopTVSeries: locator()));
-  locator.registerLazySingleton(() => TVDetailNotifier(
-      getTvDetailSeries: locator(),
-      getRecommendationTVSeries: locator(),
-      getWatchListTVStatus: locator(),
-      saveTVWatchlist: locator(),
-      removeWatchlistTV: locator()));
-  locator.registerFactory(() => PopularTVNotifier(getTVPopular: locator()));
-  locator.registerFactory(() => TopRatedTVNotifier(getTopTVSeries: locator()));
-  locator.registerFactory(() => SearchTVNotifier(searchTV: locator()));
-  locator.registerFactory(() => WatchlistTVNotifier(getTVWatchList: locator()));
+  locator.registerFactory(() => DetailTVBloc(locator()));
+  locator.registerFactory(() => OnTheAirTVBloc(locator()));
+  locator.registerFactory(() => PopularTVBloc(locator()));
+  locator.registerFactory(() => RecommendationTVBloc(locator()));
+  locator.registerFactory(() => SearchTVBloc(locator()));
+  locator.registerFactory(() => TopRatedTVBloc(locator()));
+  locator.registerFactory(
+      () => WatchlistTVBloc(locator(), locator(), locator(), locator()));
 
   // use case movie
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
@@ -66,7 +60,7 @@ void init() {
   locator.registerLazySingleton(() => GetRecommendationTVSeries(locator()));
   locator.registerLazySingleton(() => GetTopTVSeries(locator()));
   locator.registerLazySingleton(() => GetTVWatchList(locator()));
-  locator.registerLazySingleton(() => RemoveWatchlistTV(locator()));
+  locator.registerLazySingleton(() => RemoveWatchlistTVSeries(locator()));
   locator.registerLazySingleton(() => SaveTVWatchlist(locator()));
   locator.registerLazySingleton(() => SearchTV(locator()));
   locator.registerLazySingleton(() => GetWatchListTVStatus(locator()));

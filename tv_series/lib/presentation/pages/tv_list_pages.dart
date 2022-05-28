@@ -11,7 +11,7 @@ class TVList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 200,
       child: ListView.builder(
           scrollDirection: Axis.horizontal,
@@ -21,7 +21,7 @@ class TVList extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: InkWell(
                 onTap: () {
-                  Navigator.pushNamed(context, TVDetailPage.ROUTE_NAME,
+                  Navigator.pushNamed(context, TVDetailPage.routeName,
                       arguments: tv.id);
                 },
                 child: ClipRRect(

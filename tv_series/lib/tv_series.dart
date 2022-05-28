@@ -35,13 +35,14 @@ export 'domain/usecases/remove_watchlist_tv.dart';
 export 'domain/usecases/save_watchlist_tv.dart';
 export 'domain/usecases/search_tv.dart';
 
-// presentation => provider
-export 'presentation/provider/tv_detail_notifier.dart';
-export 'presentation/provider/tv_list_notifier.dart';
-export 'presentation/provider/tv_popular_notifier.dart';
-export 'presentation/provider/tv_search_notifier.dart';
-export 'presentation/provider/tv_top_rated_notifier.dart';
-export 'presentation/provider/watchlist_tv_notifier.dart';
+// presentation => bloc
+export 'presentation/bloc/detail_tv_series/detail_tv_bloc.dart';
+export 'presentation/bloc/on_the_air_tv_series/on_the_air_tv_bloc.dart';
+export 'presentation/bloc/popular_tv_series/popular_tv_bloc.dart';
+export 'presentation/bloc/recommendation_tv_series/recommendation_tv_bloc.dart';
+export 'presentation/bloc/search_tv_series/search_tv_bloc.dart';
+export 'presentation/bloc/top_rated_tv_series/top_rated_tv_bloc.dart';
+export 'presentation/bloc/watchlist_tv_series/watchlist_tv_bloc.dart';
 
 // presentation => pages
 export 'presentation/pages/search_tv_page.dart';

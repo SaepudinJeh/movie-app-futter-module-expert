@@ -21,7 +21,7 @@ class GenreTVModel extends Equatable {
       };
 
   GenreTv toEntity() {
-    return GenreTv(id: this.id, name: this.name);
+    return GenreTv(id: id, name: name);
   }
 
   @override
