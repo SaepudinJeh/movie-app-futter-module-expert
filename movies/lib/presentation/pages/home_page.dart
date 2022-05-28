@@ -91,55 +91,6 @@ class _HomePageState extends State<HomePage> {
                   return const Text('Failed');
                 }
               }),
-              // const Divider(color: Colors.white, height: 65.0),
-              // Padding(
-              //   padding: const EdgeInsets.only(left: 8.0),
-              //   child: Text(
-              //     'On The Air TV Series',
-              //     style: kHeading6,
-              //   ),
-              // ),
-              // Consumer<TVListNotifier>(builder: (context, data, child) {
-              //   final state = data.onTheAirTVState;
-
-              //   if (state == RequestState.Loading) {
-              //     return const Center(child: const CircularProgressIndicator());
-              //   } else if (state == RequestState.Loaded) {
-              //     return TVList(data.onTheAirTV);
-              //   } else {
-              //     return const Text('Failed');
-              //   }
-              // }),
-              // _buildSubHeading(
-              //     title: 'On Popular TV Series',
-              //     onTap: () =>
-              //         Navigator.pushNamed(context, PopularTVPage.routeName)),
-              // Consumer<TVListNotifier>(builder: (context, data, child) {
-              //   final state = data.onPopularTVState;
-
-              //   if (state == RequestState.Loading) {
-              //     return const Center(child: const CircularProgressIndicator());
-              //   } else if (state == RequestState.Loaded) {
-              //     return TVList(data.onPopularTV);
-              //   } else {
-              //     return const Text('Failed');
-              //   }
-              // }),
-              // _buildSubHeading(
-              //     title: 'Top Rated TV Series',
-              //     onTap: () =>
-              //         Navigator.pushNamed(context, TopRatedTVPage.routeName)),
-              // Consumer<TVListNotifier>(builder: (context, data, child) {
-              //   final state = data.topRatedTVState;
-
-              //   if (state == RequestState.Loading) {
-              //     return const Center(child: const CircularProgressIndicator());
-              //   } else if (state == RequestState.Loaded) {
-              //     return TVList(data.topRatedTV);
-              //   } else {
-              //     return const Text('Failed');
-              //   }
-              // }),
             ],
           ),
         ),
