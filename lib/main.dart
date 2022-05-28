@@ -1,10 +1,10 @@
 import 'package:commons/commons.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/tv_series.dart';
 import 'package:movies/movies.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
 
 void main() {
@@ -15,34 +15,31 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
         // Movie
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieListNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<DetailMovieBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieDetailNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<NowPlayingMovieBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<PopularMoviesBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedMoviesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<RecommendMoviesBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularMoviesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<SearchMovieBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistMovieNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TopRatedMoviesBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<WatchlistMoviesBloc>(),
         ),
         // TV
-        ChangeNotifierProvider(create: (_) => di.locator<TVListNotifier>()),
-        ChangeNotifierProvider(create: (_) => di.locator<TVDetailNotifier>()),
-        ChangeNotifierProvider(create: (_) => di.locator<PopularTVNotifier>()),
-        ChangeNotifierProvider(create: (_) => di.locator<TopRatedTVNotifier>()),
-        ChangeNotifierProvider(create: (_) => di.locator<SearchTVNotifier>()),
-        ChangeNotifierProvider(create: (_) => di.locator<WatchlistTVNotifier>())
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

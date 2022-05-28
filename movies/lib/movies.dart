@@ -45,13 +45,14 @@ export 'presentation/pages/search_page.dart';
 export 'presentation/pages/top_rated_movies_page.dart';
 export 'presentation/pages/watchlist_movies_page.dart';
 
-// presentation => provider
-export 'presentation/provider/movie_detail_notifier.dart';
-export 'presentation/provider/movie_list_notifier.dart';
-export 'presentation/provider/movie_search_notifier.dart';
-export 'presentation/provider/popular_movies_notifier.dart';
-export 'presentation/provider/top_rated_movies_notifier.dart';
-export 'presentation/provider/watchlist_movie_notifier.dart';
+// presentation => bloc
+export 'presentation/bloc/detail_movie/detail_movie_bloc.dart';
+export 'presentation/bloc/now_playing_movies/now_playing_movies_bloc.dart';
+export 'presentation/bloc/popular_movies/popular_movie_bloc.dart';
+export 'presentation/bloc/recommendation_movies/recommend_movies_bloc.dart';
+export 'presentation/bloc/search_movies/search_movies_bloc.dart';
+export 'presentation/bloc/top_rated_movies/top_rated_movies_bloc.dart';
+export 'presentation/bloc/watchlist_movie/watchlist_movie_bloc.dart';
 
 // presentation => widgets
 export 'presentation/widgets/custom_drawer.dart';
