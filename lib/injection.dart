@@ -94,6 +94,5 @@ void init() {
   locator.registerLazySingleton<DatabaseTVHelper>(() => DatabaseTVHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
-  locator.registerLazySingleton(() => DataConnectionChecker());
+  locator.registerLazySingleton(() => HTTPSPinning.client);
 }
