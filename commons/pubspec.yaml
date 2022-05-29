@@ -26,8 +26,8 @@ dependencies:
       ref: master
   movies:
     path: ../movies
-  tv_series:
-    path: ../tv_series
+  tv:
+    path: ../tv
 
 dev_dependencies:
   flutter_test:

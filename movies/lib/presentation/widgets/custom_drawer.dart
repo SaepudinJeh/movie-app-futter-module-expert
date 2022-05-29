@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies/presentation/pages/home_page.dart';
 import 'package:movies/presentation/pages/watchlist_movies_page.dart';
-import 'package:tv_series/tv_series.dart';
+import 'package:tv/tv.dart';
 
 import '../pages/about_page.dart';
 

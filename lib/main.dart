@@ -1,6 +1,6 @@
 import 'package:commons/commons.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tv_series/tv_series.dart';
+import 'package:tv/tv.dart';
 import 'package:movies/movies.dart';
 
 import 'package:flutter/cupertino.dart';

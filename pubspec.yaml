@@ -31,8 +31,8 @@ dependencies:
   flutter_bloc: ^8.0.1
   commons:
     path: commons
-  tv_series:
-    path: tv_series
+  tv:
+    path: tv
   movies:
     path: movies
     

@@ -2,10 +2,8 @@ import 'package:commons/commons.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:movies/movies.dart';
 
-import 'package:tv_series/tv_series.dart';
-
-import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
+import 'package:tv/tv.dart';
 
 final locator = GetIt.instance;
 
@@ -94,5 +92,6 @@ void init() {
   locator.registerLazySingleton<DatabaseTVHelper>(() => DatabaseTVHelper());
 
   // external
+  locator.registerLazySingleton(() => DataConnectionChecker());
   locator.registerLazySingleton(() => HTTPSPinning.client);
 }

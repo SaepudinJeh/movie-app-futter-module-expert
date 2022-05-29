@@ -1,5 +1,5 @@
 import 'package:commons/commons.dart';
-import 'package:tv_series/tv_series.dart';
+import 'package:tv/tv.dart';
 import 'package:movies/movies.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
