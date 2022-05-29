@@ -13,6 +13,7 @@ import 'package:http/http.dart' as http;
   TVLocalDataSource,
   DatabaseMovieHelper,
   NetworkInfo,
+  DatabaseTVHelper
 ], customMocks: [
   MockSpec<http.Client>(as: #MockHttpClient)
 ])

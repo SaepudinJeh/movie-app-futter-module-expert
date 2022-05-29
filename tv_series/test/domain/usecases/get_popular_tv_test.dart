@@ -3,21 +3,21 @@ import 'package:tv_series/tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
-import '../../../dummy_data/dummy_objects.dart';
-import '../../../helpers/test_helper.mocks.dart';
+import '../../dummy_data/dummy_objects.dart';
+import '../../../../commons/test/helpers/test_helper.mocks.dart';
 
 void main() {
-  late GetTopTVSeries usecase;
+  late GetPopularTVSeries usecase;
   late MockTVRepository mockTVRepository;
 
   setUp(() {
     mockTVRepository = MockTVRepository();
-    usecase = GetTopTVSeries(mockTVRepository);
+    usecase = GetPopularTVSeries(mockTVRepository);
   });
 
-  test('Should get list TV top rated from the repository', () async {
+  test('Should get list popular TV from the repository', () async {
     // arrange
-    when(mockTVRepository.getTopRatedTV())
+    when(mockTVRepository.getPopularTV())
         .thenAnswer((_) async => Right(tTvList));
     // act
     final result = await usecase.execute();

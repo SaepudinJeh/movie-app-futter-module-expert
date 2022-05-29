@@ -22,9 +22,9 @@ class TVRepositoryImpl implements TVRepository {
       final result = await remoteDataSource.getOnTheAirTV();
       return Right(result.map((data) => data.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the Network'));
+      return const Left(ConnectionFailure('Failed to connect to the Network'));
     }
   }
 
@@ -34,9 +34,9 @@ class TVRepositoryImpl implements TVRepository {
       final result = await remoteDataSource.getPopularTV();
       return Right(result.map((data) => data.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the Network'));
+      return const Left(ConnectionFailure('Failed to connect to the Network'));
     }
   }
 
@@ -46,9 +46,9 @@ class TVRepositoryImpl implements TVRepository {
       final result = await remoteDataSource.getTVRecommendations(id);
       return Right(result.map((data) => data.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the Network'));
+      return const Left(ConnectionFailure('Failed to connect to the Network'));
     }
   }
 
@@ -58,9 +58,9 @@ class TVRepositoryImpl implements TVRepository {
       final result = await remoteDataSource.getTVDetail(id);
       return Right(result.toEntity());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the Network'));
+      return const Left(ConnectionFailure('Failed to connect to the Network'));
     }
   }
 
@@ -70,9 +70,9 @@ class TVRepositoryImpl implements TVRepository {
       final result = await remoteDataSource.getTopRatedTV();
       return Right(result.map((data) => data.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the Network'));
+      return const Left(ConnectionFailure('Failed to connect to the Network'));
     }
   }
 
@@ -118,9 +118,9 @@ class TVRepositoryImpl implements TVRepository {
       final result = await remoteDataSource.searchTV(query);
       return Right(result.map((data) => data.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the Network'));
+      return const Left(ConnectionFailure('Failed to connect to the Network'));
     }
   }
 }

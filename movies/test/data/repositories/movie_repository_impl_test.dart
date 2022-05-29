@@ -6,7 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:movies/movies.dart';
 
-import '../../../../test/dummy_data/dummy_objects.dart';
+import '../../dummy_data/dummy_objects.dart';
 import '../../../../commons/test/helpers/test_helper.mocks.dart';
 
 void main() {
