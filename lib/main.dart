@@ -1,4 +1,5 @@
 import 'package:commons/commons.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv/tv.dart';
 import 'package:movies/movies.dart';
@@ -9,6 +10,7 @@ import 'package:ditonton/injection.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await HTTPSPinning.init();
   di.init();
   runApp(MyApp());
