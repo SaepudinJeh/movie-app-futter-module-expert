@@ -8,6 +8,7 @@ import 'package:http/http.dart' as http;
 
 import '../../dummy_data/dummy_objects.dart';
 import '../../../../commons/test/helpers/test_helper.mocks.dart';
+import '../../json_reader.dart';
 
 void main() {
   late TVRemoteDataSourceImpl dataSource;
