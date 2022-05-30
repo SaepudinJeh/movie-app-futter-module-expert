@@ -10,8 +10,8 @@ import 'package:ditonton/injection.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   await HTTPSPinning.init();
+  await Firebase.initializeApp();
   di.init();
   runApp(MyApp());
 }

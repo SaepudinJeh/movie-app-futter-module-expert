@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_const
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:commons/commons.dart';
 import 'package:flutter/material.dart';
@@ -79,8 +77,7 @@ class DetailContent extends StatelessWidget {
               return Container(
                 decoration: const BoxDecoration(
                   color: kRichBlack,
-                  borderRadius: const BorderRadius.vertical(
-                      top: const Radius.circular(16)),
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
                 padding: const EdgeInsets.only(
                   left: 16,
